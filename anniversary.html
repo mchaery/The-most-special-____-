@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>anniversary</title>
+<link href='http://fonts.googleapis.com/css?family=Asset' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Jua' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css">
+
+<style type="text/css">
+    h1 {text-align: center; font-family: "Asset", cursive;}
+    h2 {text-align: center; font-family: "Shadows Into Light", cursive; font-size: 38px;}
+    h3 {text-align: center; font-family: "Shadows Into Light", cursive; font-size: 26px;}
+    p, label, nav{font-family: "Jua", cursive; font-size: 18px;}
+</style>
+</head>
+
+<body>
+<?php
+  $connect = mysqli_connect('localhost', 'publications', 'kristie123', 'member') or die("connect failed");
+  $query = "SELECT * FROM anniversary order by number desc";    //역순 출력
+  $result = mysqli_query($connect, $query);
+  $total = mysqli_num_rows($result);
+
+  session_start();
+
+  if (isset($_SESSION['userid'])) {
+  ?><b><?php echo $_SESSION['userid']; ?></b>님 반갑습니다.
+      <button onclick="location.href='./logout_action.php'" style="float:right; font-size:15px;">로그아웃</button>
+      <br />
+  <?php
+  } else {
+  ?>
+      <button onclick="location.href='./register_action2.php'" style="float:right; font-size:15px;">회원가입</button>
+      <button onclick="location.href='./login.php'" style="float:right; font-size:15px;">로그인</button>
+      <br />
+  <?php
+  }
+  ?>
+
+<div class="wrapper">
+    <div>
+        <A href="first.html"><h1 style="color:rgb(179, 54, 54); font-size:40px;">The<br>most<br>Special<br>_____.</h1></A>
+    </div>
+    <div>
+        <nav>
+            <ul class="main-nav">
+              <li style="color:rgb(179, 54, 54); font-family: Asset, cursive;">Anniversary</li>
+              <li class="push"><a href="bday.html">B-day</a></li>
+              <li><a href="xmas.html">X-mas</a></li>
+              <li><a href="travel.html">Travel</a></li>
+            </ul>
+        </nav>
+        
+        <p style="font-size:25px; text-align:center"><b>게시판</b></p>
+        <table align=center>
+            <thead align="center">
+                <tr>
+                    <td width="50" align="center">번호</td>
+                    <td width="500" align="center">제목</td>
+                    <td width="100" align="center">작성자</td>
+                    <td width="200" align="center">날짜</td>
+                    <td width="50" align="center">조회수</td>
+                </tr>
+            </thead>
+    
+            <tbody>
+                <?php
+                while ($rows = mysqli_fetch_assoc($result)) { //result set에서 레코드(행)를 1개씩 리턴
+                    if ($total % 2 == 0) {
+                ?>
+                        <tr class="even">
+                            <!--배경색 진하게-->
+                        <?php } else {
+                        ?>
+                        <tr>
+                            <!--배경색 그냥-->
+                        <?php } ?>
+                        <td width="50" align="center"><?php echo $total ?></td>
+                        <td width="500" align="center">
+                            <a href="read3.php?number=<?php echo $rows['number'] ?>">
+                                <?php echo $rows['title'] ?>
+                        </td>
+                        <td width="100" align="center"><?php echo $rows['id'] ?></td>
+                        <td width="200" align="center"><?php echo $rows['date'] ?></td>
+                        <td width="50" align="center"><?php echo $rows['hit'] ?></td>
+                        </tr>
+                    <?php
+                    $total--;
+                }
+                    ?>
+            </tbody>
+        </table>
+    
+        <div class="text">
+            <font style="cursor: pointer" onClick="location.href='./write3.php'">글쓰기</font>
+        </div>
+
+</body>
+</html>

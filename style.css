@@ -1,0 +1,161 @@
+<style>
+.nested{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-auto-rows: 150px;
+}
+.dotwrapper{text-align: center;}
+.dot{display : inline-block;}
+.log {
+    padding: 15px;
+    text-align: center;
+}
+a { 
+    text-align: center; 
+    color: inherit; /* 하이퍼링크 색상 제거 */
+    text-decoration: none;
+ }
+a:hover {
+    color : rgb(179, 54, 54) !important;
+}
+.main-nav {
+    display: flex;
+    list-style: none;
+    background: rgb(227, 227, 227);
+    margin:auto 0;
+}    
+li {
+    padding: 0.5rem;
+}
+.push {
+	margin-left:auto;
+}
+
+/*게시판*/
+  table {
+      border-top: 1px solid #444444;
+      border-collapse: collapse;
+  }
+
+  tr {
+      border-bottom: 1px solid #444444;
+      padding: 10px;
+  }
+
+  td {
+      border-bottom: 1px solid #efefef;
+      padding: 10px;
+  }
+
+  table .even {
+      background: #efefef;
+  }
+
+  .text {
+      text-align: center;
+      padding-top: 20px;
+      color: #000000
+  }
+
+  .text:hover {
+      text-decoration: underline;
+  }
+
+  /* a:link {
+      color: #57A0EE;
+      text-decoration: none;
+  } */
+
+  a:hover {
+      text-decoration: underline;
+  }
+
+/*read*/
+.read_table {
+    border: 1px solid #444444;
+    margin-top: 30px;
+}
+
+.read_title {
+    height: 45px;
+    font-size: 23.5px;
+    text-align: center;
+    background-color: #3C3C3C;
+    color: white;
+    width: 1000px;
+}
+
+.read_id {
+    text-align: center;
+    background-color: #EEEEEE;
+    width: 30px;
+    height: 33px;
+}
+
+.read_id2 {
+    background-color: white;
+    width: 60px;
+    height: 33px;
+    padding-left: 10px;
+}
+
+.read_hit {
+    background-color: #EEEEEE;
+    width: 30px;
+    text-align: center;
+    height: 33px;
+}
+
+.read_hit2 {
+    background-color: white;
+    width: 60px;
+    height: 33px;
+    padding-left: 10px;
+}
+
+.read_content {
+    padding: 20px;
+    border-top: 1px solid #444444;
+    height: 500px;
+}
+
+.read_btn {
+    width: 700px;
+    height: 200px;
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.read_btn1 {
+    height: 45px;
+    width: 90px;
+    font-size: 20px;
+    text-align: center;
+    background-color: #3C3C3C;
+    border: 2px solid black;
+    color: white;
+    border-radius: 10px;
+}
+
+.read_comment_input {
+    width: 700px;
+    height: 500px;
+    text-align: center;
+    margin: auto;
+}
+
+.read_text3 {
+    font-weight: bold;
+    float: left;
+    margin-left: 20px;
+}
+
+.read_com_id {
+    width: 100px;
+}
+
+.read_comment {
+    width: 500px;
+}
+</style>
